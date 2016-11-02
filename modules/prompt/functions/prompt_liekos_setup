@@ -1,16 +1,19 @@
+#!/usr/bin/zsh
+# vim: set syntax=shell
+
 
 function prompt_liekos_precmd {
-  setopt LOCAL_OPTIONS
-  unsetopt XTRACE KSH_ARRAYS
+    setopt LOCAL_OPTIONS
+    unsetopt XTRACE KSH_ARRAYS
 
-  # Get Git repository information.
-  if (( $+functions[git-info] )); then
-      git-info
-  fi
+    # Get Git repository information.
+    if (( $+functions[git-info] )); then
+        git-info
+    fi
 
-  if (( $+functions[python-info] )); then
-      python-info
-  fi
+    if (( $+functions[python-info] )); then
+        python-info
+    fi
 }
 
 function prompt_liekos_setup {
@@ -23,30 +26,27 @@ function prompt_liekos_setup {
 
     add-zsh-hook precmd prompt_liekos_precmd
     
-    COL1="14"
+    COL1="74"
     COL2="15"
 
     zstyle ':prezto:module:git:info' verbose 'yes'
-    zstyle ':prezto:module:git:info:dirty' format "%%B] %F{red}✖%f%%b"
-    zstyle ':prezto:module:git:info:clean' format "%B] %F{green}✔%f%b"
-    zstyle ':prezto:module:git:info:branch' format "%%B%F{$COL2}[%f%%b%%B%F{$COL1}%b%f%%b"
-    zstyle ':prezto:module:git:info:keys' format \
-	   'prompt' '$(coalesce "%b" "%p" "%c")%s%C%D' \
+    zstyle ':prezto:module:git:info:dirty'      format "%%B) %F{red}%f%%b"
+    zstyle ':prezto:module:git:info:clean'      format "%B) %F{green}%f%b"
+    zstyle ':prezto:module:git:info:branch'     format "%%B%F{$COL2}git:(%f%F{$COL1} %b%f"
+    zstyle ':prezto:module:git:info:position' format '%p'
+    zstyle ':prezto:module:git:info:keys'       format \
+	   'prompt' '$(coalesce "%b" "%p" "%c") %s%C%D' \
 	   'rprompt' ''
 
-    zstyle ':prezto:module:python:info:virtualenv' format '%F{$COL2}[%f %B%F{$COL1}%v%f%b %F{$COL2}]%f' 
+    zstyle ':prezto:module:python:info:virtualenv' format \
+        '%F{$COL2}[%f %B%F{$COL1}%v%f%b %F{$COL2}]%f' 
 
     
-    PROMPT='%B┌┄%F{$COL2}[%f%F{$COL1} %c %F{$COL2}]::%f%b%B${git_info:+${(e)git_info[prompt]}}%b
-└┄%B%F{$COL1}%f%b%B❱%F{$COL1}❱%f❱%b '
+    PROMPT='%B┌┄%F{$COL1} %c %f::%f ${git_info:+${(e)git_info[prompt]}}
+└%F{$COL1}┄─╼%f%b ' 
 
     RPROMPT='$python_info[virtualenv]'
 }
 
-
-
 prompt_liekos_setup "$@"
 
-
-# ┌┄[jack]┄(master)
-# └┄% 

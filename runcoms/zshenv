@@ -9,3 +9,17 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+# Explicitly set default XDG directories
+export XDG_CONFIG_HOME="$HOME/.config/"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share/"
+
+export XDG_DESKTOP_DIR="$HOME/"
+export XDG_DOCUMENTS_DIR="$HOME/workspace/"
+export XDG_DOWNLOAD_DIR="$HOME/downloads/"
+export XDG_PICTURES_DIR="$HOME/images/"
+# export XDG_MUSIC_DIR=
+# export XDG_PUBLICSHARE_DIR=
+# export XDG_TEMPLATES_DIR=
+# export XDG_VIDEOS_DIR=
