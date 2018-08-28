@@ -6,13 +6,13 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh/init.zsh"
 fi
 
 autoload -Uz promptinit
-promptinit
-prompt liekos
+# set prompt
+promptinit && prompt liekos
 # Customize to your needs...
 export EDITOR="nvim"
 export VISUAL="nvim"

@@ -90,7 +90,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 #
 
 # Set the query found color.
-zstyle ':prezto:module:history-substring-search:color' found 'fg=yellow,bold'
+zstyle ':prezto:module:history-substring-search:color' found 'fg=blue,bold'
 
 # Set the query not found color.
 zstyle ':prezto:module:history-substring-search:color' not-found 'fg=red,bold'
@@ -110,7 +110,7 @@ zstyle ':prezto:module:history-substring-search:color' not-found 'fg=red,bold'
 #
 
 # Set the Pacman frontend.
-zstyle ':prezto:module:pacman' frontend 'pacaur'
+zstyle ':prezto:module:pacman' frontend 'aurman'
 
 #
 # Prompt
