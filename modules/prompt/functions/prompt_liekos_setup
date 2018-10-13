@@ -1,5 +1,8 @@
 #!/usr/bin/zsh
 # vim: set syntax=shell
+#
+# ┌┄[jack]┄(master)
+# └┄% 
 
 
 function prompt_liekos_precmd {
@@ -44,9 +47,7 @@ function prompt_liekos_setup {
     
     PROMPT='%B┌┄%F{$COL1} %c %f::%f ${git_info:+${(e)git_info[prompt]}}
 └%F{$COL1}┄─╼%f%b ' 
-
     RPROMPT='$python_info[virtualenv]'
 }
 
 prompt_liekos_setup "$@"
-

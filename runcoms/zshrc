@@ -16,3 +16,21 @@ promptinit && prompt liekos
 # Customize to your needs...
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# Python Virtualenvs
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    source /usr/bin/virtualenvwrapper.sh
+    export WORKON_HOME="~/.virtualenvs/"
+fi
+
+# Aliases
+alias vim="nvim"
+alias vi="vim"
+alias e="vim"
+alias cat="bat"
+alias find="fd"
+
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --ignore-file ~/.ignore"
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

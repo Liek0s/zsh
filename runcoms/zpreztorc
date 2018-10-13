@@ -106,7 +106,11 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 #
 
 # Set the query found color.
+<<<<<<< HEAD
 zstyle ':prezto:module:history-substring-search:color' found 'fg=blue,bold'
+=======
+zstyle ':prezto:module:history-substring-search:color' found 'fg=yellow,bold'
+>>>>>>> merge prompt and update rc
 
 # Set the query not found color.
 zstyle ':prezto:module:history-substring-search:color' not-found 'fg=red,bold'
@@ -237,7 +241,15 @@ zstyle ':prezto:module:prompt' theme 'liekos'
 #
 
 # Auto start a session when Zsh is launched in a local terminal.
+<<<<<<< HEAD
+<<<<<<< HEAD
 zstyle ':prezto:module:tmux:auto-start' local 'no'
+=======
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
+>>>>>>> add some modules
+=======
+zstyle ':prezto:module:tmux:auto-start' local 'no'
+>>>>>>> merge prompt and update rc
 
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
