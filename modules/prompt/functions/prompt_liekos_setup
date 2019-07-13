@@ -4,7 +4,6 @@
 # ┌┄[jack]┄(master)
 # └┄% 
 
-
 function prompt_liekos_precmd {
     setopt LOCAL_OPTIONS
     unsetopt XTRACE KSH_ARRAYS
@@ -23,30 +22,31 @@ function prompt_liekos_setup {
 
     setopt LOCAL_OPTIONS
     unsetopt XTRACE KSH_ARRAYS
-    prompt_opts=(cr percent subst)
+    prompt_opts=(cr percent sp subst)
     
     autoload -Uz add-zsh-hook
 
     add-zsh-hook precmd prompt_liekos_precmd
     
-    COL1="74"
-    COL2="15"
+    COLOUR1="03"
+    COLOUR2="07"
 
-    zstyle ':prezto:module:git:info' verbose 'yes'
-    zstyle ':prezto:module:git:info:dirty'      format "%%B) %F{red}✘%f%%b"
-    zstyle ':prezto:module:git:info:clean'      format "%B) %F{green}✔%f%b"
-    zstyle ':prezto:module:git:info:branch'     format "%%B%F{$COL2}git:(%f%F{$COL1} %b%f"
-    zstyle ':prezto:module:git:info:position' format '%p'
+    zstyle ':prezto:module:git:info'            verbose 'yes'
+    zstyle ':prezto:module:git:info:dirty'      format "] %F{red}✘%f%%b"
+    zstyle ':prezto:module:git:info:clean'      format "] %F{green}✔%f%b"
+    zstyle ':prezto:module:git:info:branch'     format "%%B%F{$COLOUR2}[%f%F{$COLOUR1} %b%f"
+    zstyle ':prezto:module:git:info:commit'     format "%%B%F{$COLOUR2}[%f%F{$COLOUR1} %c%f"
+    zstyle ':prezto:module:git:info:position'   format "%%B%F{$COLOUR2}[%f%F{$COLOUR1} %p%f"
     zstyle ':prezto:module:git:info:keys'       format \
-	   'prompt' '$(coalesce "%b" "%p" "%c") %s%C%D' \
-	   'rprompt' ''
+                               'prompt' '$(coalesce "%b" "%c") %s%C%D' \
+                               'rprompt' ''
 
     zstyle ':prezto:module:python:info:virtualenv' format \
-        '%F{$COL2}[%f %B%F{$COL1}%v%f%b %F{$COL2}]%f' 
+        '%F{$COLOUR2}[%f %B%F{$COLOUR1}%v%f%b %F{$COLOUR2}]%f' 
 
     
-    PROMPT='%B┌┄%F{$COL1} %c %f::%f ${git_info:+${(e)git_info[prompt]}}
-└%F{$COL1}┄─╼%f%b ' 
+    PROMPT='%B┌┄%F{$COLOUR1} %c %f::%f ${git_info:+${(e)git_info[prompt]}}
+└%F{$COLOUR1}┄─╼%f%b ' 
     RPROMPT='$python_info[virtualenv]'
 }
 
