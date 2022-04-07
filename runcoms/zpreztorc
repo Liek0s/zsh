@@ -38,10 +38,13 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
-  'ssh'         \
-  'completion' \
+  'git' \
+  'ssh' \
+  'python' \
+  'pacman' \
   'history-substring-search' \
   'autosuggestions' \
+  'completion' \
   'prompt'
 
 #
